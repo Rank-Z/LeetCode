@@ -1,6 +1,6 @@
 # LintCode
 
-LintCode solutions      http://www.lintcode.com/zh-cn/problem/
+LintCode solutions  http://www.lintcode.com/en/problem/   可以选中文
 
 LintCode 的C++解法，不考虑性能与美观，有时候不用标准库，即兴编程，随性乱写，保证AC
 
