@@ -20,15 +20,38 @@ public:
 	*/
 	ListNode * insertionSortList(ListNode * head) {
 		// write your code here
+		if (head == nullptr)
+			return nullptr;
 
-		vector<int> vi;
-		for (ListNode* t = head; t != nullptr; t = t->next)
-			vi.push_back(t->val);
-
-		sort(vi.begin() , vi.end());
-		int pos = 0;
-		for (ListNode* t = head; t != nullptr; t = t->next)
-			t->val = vi [pos++];
+		ListNode* now = head;
+		for (; now->next != nullptr;)
+		{
+			if (head->val>now->next->val)
+			{
+				ListNode* temp = now->next->next;
+				now->next->next = head;
+				head = now->next;
+				now->next = temp;
+			}
+			else for (ListNode* find = head;;)
+			{
+				if (find == now)
+				{
+					now = now->next;
+					break;
+				}
+				if (find->next->val <= now->next->val)
+					find = find->next;
+				else
+				{
+					ListNode* temp = now->next->next;
+					now->next->next = find->next;
+					find->next = now->next;
+					now->next = temp;
+					break;
+				}
+			}
+		}
 
 		return head;
 	}
